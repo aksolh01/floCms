@@ -1,0 +1,39 @@
+<div class="sidebar-menu">
+    <div #sidebarContainer class="sidebar-menu-container">
+        <div class="sidebar-menu-item burgerMenu">
+            <div class="txt">Menu</div>
+            <img (click)="hideShowSideBar()" src="../../../assets/icons/menu.svg">
+        </div>
+        <a *ngFor="let item of sidebarLinks" [routerLink]="item.router" routerLinkActive="active" class="sidebar-menu-item">
+            <img [src]="item.icon">
+            <div class="txt">{{item.txt}}</div>
+        </a>
+        <!-- <a routerLink="/dashboard/layout" class="sidebar-menu-item">
+            <img src="../../../assets/icons/layout.svg">
+            <div  class="txt">Layout</div>
+        </a>
+        <div class="sidebar-menu-item">
+            <img src="../../../assets/icons/users.svg">
+            <div  class="txt">Users</div>
+        </div>
+        <div class="sidebar-menu-item">
+            <img src="../../../assets/icons/comments.svg">
+            <div  class="txt">Comments</div>
+        </div>
+        <div class="sidebar-menu-item">
+            <img src="../../../assets/icons/messages.svg">
+            <div  class="txt">Messages</div>
+        </div>
+        <div  class="sidebar-menu-item">
+            <img src="../../../assets/icons/gallery.svg">
+            <div  class="txt">Gallery</div>
+        </div> -->
+        <div class="logout">
+            <div class="sidebar-menu-item">
+                <img src="../../../assets/icons/logout.svg">
+                <div class="txt">Logout</div>
+            </div>
+        </div>
+    </div>
+</div>
+

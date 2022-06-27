@@ -1,0 +1,71 @@
+<div class="page-title">
+    Users
+</div>
+<div *ngIf="ELEMENT_DATA.length <= 0" class="empty-state">
+    <div class="empty-state-container">
+      <div class="empty-state-table">No Users Found</div>
+    </div>
+  </div>
+  
+  <div *ngIf="ELEMENT_DATA.length > 0" class="table-container">
+    <table
+      mat-table
+      [dataSource]="dataSource"
+      class="mat-elevation-z8"
+    >
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
+  
+      <!-- email Column -->
+      <ng-container matColumnDef="email">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+        >
+          Email
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="role">
+        <th mat-header-cell *matHeaderCellDef>Role</th>
+        <td mat-cell *matCellDef="let element">
+          <select (change)="selectOption($event.target.value)">
+            <option *ngFor="let item of statusOptions"  [selected]="element.status === item.value" [value]="item.value">
+              {{item.name}}
+            </option>
+          </select>
+        </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="numberOfPages">
+        <th mat-header-cell *matHeaderCellDef >Number of pages</th>
+        <td mat-cell *matCellDef="let element">{{ element.numberOfPages }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element">
+          <div class="icon-actions">
+            <img (click)="deletePage(element.id)" src="../../../assets/icons/delete.svg" alt="">
+  
+            <img (click)="sendMessage(element.name)" src="../../../assets/icons/message-blue.svg" alt="">
+          </div>
+    
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="readCount">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Read Count</th>
+        <td mat-cell *matCellDef="let element">{{ element.readCount }}</td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+
+  <router-outlet></router-outlet>

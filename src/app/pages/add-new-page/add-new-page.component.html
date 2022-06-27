@@ -1,0 +1,80 @@
+<h1 class="page-title">Add New Page</h1>
+<form [formGroup]="pageGroup" (ngSubmit)="addpage()">
+  <div class="input-file">
+    <input
+      type="file"
+      formControlName="imagefile"
+      (change)="onFileChange($event)"
+    />
+    <img class="pageImage" *ngIf="uploadedImage" [src]="uploadedImage" />
+  </div>
+  <div class="input-container">
+    <div class="input-item">
+      <div class="label">Title</div>
+      <input
+        type="text"
+        formControlName="pageitle"
+        placeholder="Enter page title"
+      />
+    </div>
+    <div class="input-item">
+      <div class="label">PermaLink</div>
+      <input
+        type="text"
+        formControlName="permalink"
+        placeholder="Enter page permaLink"
+      />
+    </div>
+    <div class="input-item">
+      <div class="label">Slug</div>
+      <input type="text" formControlName="slug" placeholder="Enter page slug" />
+    </div>
+    <div class="input-item">
+      <div class="label">Categories</div>
+      <select formControlName="category">
+        <option value="" disabled selected>Select Categories</option>
+        <option *ngFor="let item of categories" [value]="item.name">
+          {{ item.name }}
+        </option>
+      </select>
+    </div>
+    <div class="input-item">
+      <div class="label">status</div>
+      <select formControlName="status">
+        <option value="" disabled selected>Select status</option>
+        <option *ngFor="let item of status" [value]="item.name">
+          {{ item.name }}
+        </option>
+      </select>
+    </div>
+    <div class="input-item">
+      <div class="label">Gated</div>
+      <div class="input-radio-container">
+        <div class="input-radio-item">
+          <label>Yes</label>
+          <input
+            formControlName="gated"
+            value="Yes"
+            type="radio"
+            name="gated"
+          />
+        </div>
+        <div class="input-radio-item">
+          <label>No</label>
+          <input formControlName="gated" value="No" type="radio" name="gated" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="editor">
+    <div class="label">Description</div>
+    <textarea formControlName="description" [froalaEditor]>
+Enter page description</textarea
+    >
+  </div>
+  <div class="button-container">
+    <button [disabled]="!pageGroup.valid" class="submit-button" type="submit">
+      Add page
+    </button>
+  </div>
+</form>

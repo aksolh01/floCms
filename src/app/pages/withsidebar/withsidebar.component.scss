@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+}
+
+.container-right-section{
+    padding: 20px;
+    width: 100%;
+    max-height: calc(100vh - 60px);
+    overflow: scroll;
+}

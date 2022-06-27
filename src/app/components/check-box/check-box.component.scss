@@ -1,0 +1,20 @@
+.page-input{
+    .page-input-container{
+        display: flex;
+        gap: 20px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+        .page-input-item{
+            color: gray;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            input {
+                width: 16px;
+                height: 16px;
+                margin-top: 1px;
+            }
+        }
+    }
+}

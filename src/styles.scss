@@ -1,0 +1,131 @@
+
+@import '~@angular/material/theming';
+@include mat-core();
+$flowonCms-primary: mat-palette($mat-indigo);
+$flowonCms-accent: mat-palette($mat-pink, A200, A100, A400);
+$flowonCms-warn: mat-palette($mat-red);
+$flowonCms-theme: mat-light-theme((
+  color: (
+    primary: $flowonCms-primary,
+    accent: $flowonCms-accent,
+    warn: $flowonCms-warn,
+  )
+));
+@include angular-material-theme($flowonCms-theme);
+
+
+@import "../src/assets/auth.scss";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif
+}
+
+.fr-toolbar.fr-desktop.fr-top.fr-basic.fr-sticky-off {
+    border-radius: 0;
+}
+.fr-second-toolbar{
+    display: none;
+}
+.fr-wrapper.show-placeholder{
+    border-bottom: 1px solid #cecece !important;
+}
+th.mat-header-cell.cdk-header-cell{
+  min-width: 135px;
+}
+th.mat-header-cell.cdk-header-cell{
+  color: #178bf9;
+  border: 1px solid #eeeeee;
+  border-left: unset;
+  border-top: unset;
+  padding: 0 10px;
+  font-size: 14px;
+  &:last-child{
+    border-right: unset;
+  }
+}
+td.mat-cell.cdk-cell{
+  border: 1px solid #eeeeee;
+  border-left: unset;
+  border-top: unset;
+  padding: 0 10px !important;
+  &:last-child{
+    border-right: unset;
+  }
+}
+.page-title{
+  font-size: 36px;
+  color: #178bf9;
+  margin-bottom: 24px;
+}
+.page-subtitle{
+  margin-top: 50px;
+  color: #178bf9;
+  margin-bottom: 20px;
+}
+
+td.mat-cell.cdk-cell{
+  select{
+    border: 0;
+    width: 100%;
+    outline: none;
+  }
+}
+
+.main-page-button {
+  height: 40px;
+  background: #178bf9;
+  border: 0;
+  padding: 0 20px;
+  color: #ffffff;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+
+
+
+
+.table-container {
+  overflow-x: scroll;
+}
+table {
+  width: 100%;
+  box-shadow: unset;
+  border: 1px solid #eeeeee;
+}
+.icon-actions{
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  button{
+    border: 0;
+    padding: 5px;
+    font-size: 13px;
+    color: white;
+    min-height: 26px;
+    background: #178bf9;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  img{
+      cursor: pointer;
+      height: 24px;
+      width: 24px;
+  }
+}
+select{
+  cursor: pointer;
+}
+.cdk-overlay-pane{
+  position: relative !important;
+}
+
+.empty-state-table {
+  color: #178bf9;
+  text-align: center;
+  font-size: 20px;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

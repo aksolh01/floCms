@@ -1,0 +1,13 @@
+<div class="message-container">
+    <div class="message-title">
+        To: {{name}}
+    </div>
+    <form [formGroup] = "messageForm" (ngSubmit)="sendMessage()">
+        <textarea formControlName="message" placeholder="Enter your message"></textarea>
+        <div class="button-container">
+            <button (click)="back()" type="button" class="cancel">Cancel</button>
+            <button [disabled]="!messageForm.valid" class="send">Send</button>
+        </div>
+    </form>
+</div>  
+

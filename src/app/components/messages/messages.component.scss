@@ -1,0 +1,46 @@
+
+
+.message-container{
+    max-width: 500px;
+    margin: 30px auto;
+    textarea {
+        width: 100%;
+        min-height: 151px;
+        border: 1px solid #eeeeee;
+        padding: 20px;
+        margin-top: 16px;
+        font-size: 12px;
+        &::placeholder {
+            color: #cecece;
+          }
+    }
+    .message-title {
+        font-size: 16px;
+        color: #178bf9;
+    }
+    .button-container {
+        display: flex;
+        gap: 9px;
+        justify-content: flex-end;
+        margin-top: 20px;
+        .send{
+            width: 100px;
+            height: 30px;
+            color: #ffffff;
+            background-color: #178bf9;
+            border: 0;
+            cursor: pointer;
+            &:disabled {
+                opacity: 0.5;
+            }
+        }
+        .cancel {
+            width: 100px;
+            height: 30px;
+            border: 1px solid #178bf9;
+            color: #178bf9;
+            background: transparent;
+            cursor: pointer;
+        }
+    }
+}

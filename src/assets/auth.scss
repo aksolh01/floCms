@@ -1,0 +1,63 @@
+.auth{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    .title{
+        font-size: 48px;
+    }
+    .auth-container{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+        font-size: 16px;
+        font-weight: 400;
+        input{
+            width: 100%;
+            max-width: 500px;
+            height: 42px;
+            padding: 0 20px;
+            border: 1px solid #cecece;
+            outline: none;
+            font-size: 16px; 
+            &::placeholder{
+                color: #cecece;
+            }
+        }
+    }
+    button{
+        margin-top: 20px;
+        width: 100%;
+        max-width: 500px;
+        height: 42px;
+        border: 0;
+        background: #178bf9;
+        font-size: 20px;
+        color: #ffffff;
+        cursor: pointer;
+    }
+}
+.helper-link{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 500px;
+    font-size: 12px;
+    margin-top: 6px;
+    text-decoration: none;
+    color: #178bf9;
+    cursor: pointer;
+    &.center{
+        max-width: unset;
+        justify-content: center;
+        font-size: 16px;
+        margin-top: 20px;
+    }
+}

@@ -1,0 +1,21 @@
+<div class="page-title">Gallery</div>
+
+<div class="gallery-header">
+  <label for="file-upload" class="custom-file-upload"> Upload Image </label>
+  <input (change)="getImage($event)" id="file-upload" type="file" />
+  <div class="filter-container">
+    <button class="filterButton">filter by date</button>
+    <button class="filterButton">filter by date</button>
+    <button class="filterButton">filter by dimentins</button>
+    <button class="filterButton">reset</button>
+  </div>
+</div>
+<div *ngIf="iamageToUpload" >
+  <img class="uploadedImage" [src]="iamageToUpload" />
+  <button (click)="submitImage()" class="submit-image">submit image</button>
+</div>
+<div class="gallery-container">
+  <div *ngFor="let item of images" class="gallery-item">
+    <img (click)="goToPreviewImage(item.id)" [src]="item.src" alt="" />
+  </div>
+</div>

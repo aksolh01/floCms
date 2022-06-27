@@ -1,0 +1,17 @@
+.main-search-input{
+    .main-search-input-container{
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+      input{
+        padding: 0 20px;
+        min-height: 40px;
+        border: 1px solid #eeeeee;
+        &::placeholder{
+          font-size: 16px;
+          font-weight: 300;
+          color: #cecece;
+        }
+      }
+    }
+  }

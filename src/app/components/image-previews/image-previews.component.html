@@ -1,0 +1,22 @@
+<div class="image-preview">
+  <div class="image-preview-container">
+    <div *ngFor="let item of image">
+      <div class="image-preview-image">
+          <img [src]="item.src">
+      </div>
+      <div class="image-preview-items">
+          <div class="image-preview-item">
+            <span>Size, </span> {{ item.Size }} 
+          </div>
+          <div class="image-preview-item"> <span>Filename, </span>{{ item.Filename }} </div>
+          <div class="image-preview-item"> <span>Dimensions, </span> {{ item.Dimensions }}</div>
+          <div class="image-preview-item"> <span>Uploaded On, </span> {{ item.UploadedOn }}</div>
+          <div class="image-preview-item"> <span>Uploaded By, </span> {{ item.UploadedBy }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="button-container">
+      <button (click)="backToGallery()">cancel</button>
+      <button>delete</button>
+  </div>
+</div>

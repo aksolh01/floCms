@@ -1,0 +1,13 @@
+<div class="auth">
+    <div class="title">
+        Sign In
+    </div>
+    <div class="auth-container">
+        <input type="text" placeholder="Enter your first name" #email>
+        <input type="password" placeholder="Enter your password name" #password>
+    </div>
+    <a routerLink="/signup" class="helper-link">
+        don't have an account sign up
+    </a>
+    <button (click)="onSignIn(email.value, password.value)">Submit</button>
+</div>

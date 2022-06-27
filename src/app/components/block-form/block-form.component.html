@@ -1,0 +1,91 @@
+<div class="page-title">Add New Block</div>
+
+<form [formGroup]="blockGroup" (ngSubmit)="submitForm()">
+  <div formGroupName="child" class="input-container">
+    <div class="input-item">
+      <div class="label">Page Count</div>
+      <input
+        type="number"
+        min="0"
+        formControlName="pagecount"
+        placeholder="Enter page count"
+      />
+    </div>
+
+    <div class="input-item">
+      <div class="label">Sorting</div>
+      <select formControlName="sortedby">
+        <option value="" disabled selected>Select your option</option>
+        <option *ngFor="let item of sortedByOptions" [value]="item.value">
+          {{ item.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="input-item">
+      <div class="label">Sorting type</div>
+      <div class="input-radio-container">
+        <div class="input-radio-item">
+          <label>Ascending</label>
+          <input
+            formControlName="sorted"
+            value="ascending"
+            type="radio"
+            name="sorted"
+          />
+        </div>
+        <div class="input-radio-item">
+          <label>Descending</label>
+          <input
+            formControlName="sorted"
+            value="descending"
+            type="radio"
+            name="sorted"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="input-item">
+      <div class="label">Content Selection</div>
+      <select (change)="selectContentSelection($event.target.value)">
+        <option value="" disabled selected>Select Content Selection</option>
+        <option
+          *ngFor="let item of contentSelectionOptions"
+          [value]="item.value"
+        >
+          {{ item.name }}
+        </option>
+      </select>
+    </div>
+
+    <div *ngIf="contentSelection" class="input-item">
+      <div class="label">Categories</div>
+      <select>
+        <option value="" disabled selected>Select Categories</option>
+        <option *ngFor="let item of categories" [value]="item.name">
+          {{ item.name }}
+        </option>
+      </select>
+    </div>
+    
+    <button (click)="getPages()" [disabled]="!blockGroup.get('child').valid"  type="button" class="sub-page-button">
+        Get Pages
+    </button>
+  </div>
+  <app-skeleton *ngIf="loader"></app-skeleton>
+  <app-check-box [pages]="pages"></app-check-box>
+
+  <div class="button-container">
+    <div class="button-items">
+      <button (click)="back()" class="cancel">Cancel</button>
+      <button
+        [disabled]="!blockGroup.valid"
+        class="submit-button"
+        type="submit"
+      >
+        Add Block
+      </button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,74 @@
+<div class="page-title">
+    Messages
+</div>
+<app-main-input-search></app-main-input-search>
+<div *ngIf="ELEMENT_DATA.length <= 0" class="empty-state">
+    <div class="empty-state-container">
+      <div class="empty-state-table">No Messages Found</div>
+    </div>
+  </div>
+  
+  <div *ngIf="ELEMENT_DATA.length > 0" class="table-container">
+    <table
+      mat-table
+      [dataSource]="dataSource"
+      matSort
+      (matSortChange)="announceSortChange($event)"
+      class="mat-elevation-z8"
+    >
+      <!-- Message Column -->
+      <ng-container matColumnDef="message">
+        <th mat-header-cell *matHeaderCellDef>Message</th>
+        <td mat-cell *matCellDef="let element" (click)="goToPreviewMessage(element.message)" class="pointer">{{ element.message }}</td>
+      </ng-container>
+  
+      <!-- from Column -->
+      <ng-container matColumnDef="from">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header
+          sortActionDescription="Sort by from "
+        >
+          From
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element.from }}</td>
+      </ng-container>
+  
+      <!-- date Column -->
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>date</th>
+        <td mat-cell *matCellDef="let element">{{ element.date }}</td>
+      </ng-container>
+  
+      <!-- Status Column -->
+      <ng-container matColumnDef="status">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>Status</th>
+        <td [ngClass]=" element.isreaded  ? 'status active' : 'status'" mat-cell *matCellDef="let element">{{ element.status }}</td>
+      </ng-container>
+  
+   
+  
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element">
+          <div class="icon-actions">
+            <img (click)="deletePage(element.id)" src="../../../assets/icons/delete.svg" alt="">
+  
+           <button (click)="markAsRead(element.id)">Mark as read</button> 
+          </div>
+    
+        </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="readCount">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Read Count</th>
+        <td mat-cell *matCellDef="let element">{{ element.readCount }}</td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+  <router-outlet></router-outlet>
+  
