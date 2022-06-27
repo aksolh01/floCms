@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "flocms"
+  "defaultProject": "flocms",
+  "cli": {
+    "analytics": false
+  }
 }
